@@ -1,0 +1,38 @@
+import pandas as pd
+from pymongo import MongoClient
+from pymongo.errors import ServerSelectionTimeoutError
+
+# MongoDB connection URI
+mongo_uri = 'mongodb://localhost:27017/'
+
+# CSV file path
+csv_file_path = r'C:\Users\admin\Desktop\metro ridership project\metro_ridership_prediction\transaction_analysis_summary.csv'  # Replace with the path to your CSV file
+
+# Database and Collection names
+database_name = 'test_database'
+collection_name = 'test_collection'
+
+try:
+    # Establish connection to MongoDB
+    client = MongoClient(mongo_uri, serverSelectionTimeoutMS=5000)  # Timeout for connection
+    print("Connected to MongoDB!")
+
+    # Access the database and collection
+    db = client[database_name]
+    collection = db[collection_name]
+    print(f"Accessing collection: {collection_name}")
+
+    # Read the CSV file into a DataFrame
+    df = pd.read_csv(csv_file_path)
+    print("CSV file read into DataFrame.")
+
+    # Convert DataFrame to dictionary format for MongoDB
+    records = df.to_dict(orient='records')
+    print("Converted DataFrame to dictionary.")
+
+    # Insert data into MongoDB
+    result = collection.insert_many(records)
+    print(f"Inserted {len(result.inserted_ids)} records into MongoDB.")
+
+except ServerSelectionTimeoutError as e:
+    print("Failed to connect to MongoDB:", e)
