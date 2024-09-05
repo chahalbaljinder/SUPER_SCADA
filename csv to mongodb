@@ -6,11 +6,11 @@ from pymongo.errors import ServerSelectionTimeoutError
 mongo_uri = 'mongodb://localhost:27017/'
 
 # CSV file path
-csv_file_path = r'C:\Users\admin\Desktop\metro ridership project\metro_ridership_prediction\transaction_analysis_summary.csv'  # Replace with the path to your CSV file
+csv_file_path = r'C:\Users\admin\Desktop\metro ridership project\txn_collection.csv'  # Replace with the path to your CSV file
 
 # Database and Collection names
 database_name = 'test_database'
-collection_name = 'test_collection'
+collection_name = 'txn_collection'
 
 try:
     # Establish connection to MongoDB

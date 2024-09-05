@@ -1,16 +1,13 @@
 import pandas as pd
 import holidays
 
-# Sample DataFrame
-data = {
-    'timestamp': ['2024-01-01 08:15:00', '2024-01-01 09:00:00', '2024-01-02 08:30:00', '2024-01-05 10:00:00', '2024-01-05 15:00:00'],
-    'transaction_id': [1, 2, 3, 4, 5],
-    'transaction_sequence': [1, 2, 3, 4, 5]
-}
+# Load the data
+data = r'C:\Users\admin\Desktop\metro ridership project\transaction_data.csv'
+df = pd.read_csv(data)
 
-df = pd.DataFrame(data)
-df['timestamp'] = pd.to_datetime(df['timestamp'])  # Convert to datetime
-df.set_index('timestamp', inplace=True)
+# Convert 'timestamp' column to datetime and set it as index
+df['date'] = pd.to_datetime(df['date'])
+df.set_index('date', inplace=True)
 
 # 1. Number of Transactions in an Hour
 transactions_per_hour = df.resample('H').size()
