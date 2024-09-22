@@ -1,19 +1,26 @@
 import pandas as pd
-import random
-import string
+import numpy as np
 
-# Generate timestamps
-start_time = pd.to_datetime('2021-10-12 09:47:56')
-end_time = pd.to_datetime('2021-10-13 19:00:05')
-timestamps = pd.date_range(start=start_time, end=end_time, freq='5s')
+# Load the dataset
+file_path = r'C:\Users\admin\Desktop\airline\sensor-file-ridership/transaction.csv'
+data = pd.read_csv(file_path)
 
-# Generate other columns
-EqN = [random.randint(100000, 999999) for _ in range(len(timestamps))]
-Tseq = range(1, len(timestamps) + 1)
-tid = [''.join(random.choices(string.ascii_uppercase + string.digits, k=6)) + str(i).zfill(6) for i in Tseq]
+# Generate the new columns
 
-# Create DataFrame
-df = pd.DataFrame({'timestamp': timestamps, 'EqN': EqN, 'Tseq': Tseq, 'tid': tid})
+# 1. Reference Seq_no: Sequence from 1 to the length of the data
+data['Reference Seq_no'] = np.arange(1, len(data) + 1)
 
-# Save to CSV
-df.to_csv(r"C:\Users\admin\Desktop\metro ridership project\metro_transactions.csv", index=False)
+# 2. DSM: Randomly assign one of 20-25 unique 5-digit integers across the rows
+unique_dsm_values = np.random.choice(range(10000, 99999), size=np.random.randint(20, 26), replace=False)
+data['DSM'] = np.random.choice(unique_dsm_values, size=len(data), replace=True)
+
+# 3. Tag: Randomly assign one of 30-35 tags from a given list (e.g., 2001, 2002, 2003, 2004, 5001)
+tag_values = [2001, 2002, 2003, 2004, 5001]
+tag_pool = np.random.choice(tag_values, size=np.random.randint(30, 36), replace=True)
+data['Tag'] = np.random.choice(tag_pool, size=len(data), replace=True)
+
+# Save the updated data to a new file
+output_path = r'C:\Users\admin\Desktop\airline\sensor-file-ridership/transaction_updated.csv'
+data.to_csv(output_path, index=False)
+
+output_path
