@@ -5,12 +5,12 @@ import seaborn as sns
 
 # Load the CSV files based on the data type selected
 file_paths = {
-    'daily': r'C:\Users\admin\Desktop\airline\sensor-file-ridership\output of sensors\daily_forecast_prophet.csv',
-    'weekly': r'C:\Users\admin\Desktop\airline\sensor-file-ridership\output of sensors\weekly_forecast_prophet.csv',
-    'monthly': r'C:\Users\admin\Desktop\airline\sensor-file-ridership\output of sensors\monthly_forecast_prophet.csv',
-    'yearly': r'C:\Users\admin\Desktop\airline\sensor-file-ridership\output of sensors\yearly_forecast_prophet.csv',
-    'weekend': r'C:\Users\admin\Desktop\airline\sensor-file-ridership\output of sensors\weekend_forecast_prophet.csv',
-    'weekday': r'C:\Users\admin\Desktop\airline\sensor-file-ridership\output of sensors\weekday_forecast_prophet.csv'
+    'daily': r'C:\Users\admin\Desktop\airline\metro ridership project\output of txn record\daily_transactions.csv',
+    'weekly': r'C:\Users\admin\Desktop\airline\metro ridership project\output of txn record\weekly_transactions.csv',
+    'monthly': r'C:\Users\admin\Desktop\airline\metro ridership project\output of txn record\monthly_transactions.csv',
+    'yearly': r'C:\Users\admin\Desktop\airline\metro ridership project\output of txn record\yearly_transactions.csv',
+    'weekend': r'C:\Users\admin\Desktop\airline\metro ridership project\output of txn record\weekend_transactions.csv',
+    'weekday': r'C:\Users\admin\Desktop\airline\metro ridership project\output of txn record\weekday_transactions.csv'
 }
 
 # Function to load and display data

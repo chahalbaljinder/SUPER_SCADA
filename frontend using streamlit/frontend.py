@@ -3,8 +3,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Load data (weekday and weekend data)
-weekday_data = pd.read_csv(r'C:\Users\admin\Desktop\airline\sensor-file-ridership\output of sensors\weekday_forecast_prophet.csv')
-weekend_data = pd.read_csv(r'C:\Users\admin\Desktop\airline\sensor-file-ridership\output of sensors\weekend_forecast_prophet.csv')
+weekday_data = pd.read_csv(r'C:\Users\admin\Desktop\airline\metro ridership project\metro_ridership_prediction\output of sensors\weekday_forecast_prophet_all_all.csv')
+weekend_data = pd.read_csv(r'C:\Users\admin\Desktop\airline\metro ridership project\metro_ridership_prediction\output of sensors\weekend_forecast_prophet_all_all.csv')
 
 # Function to plot graph
 def plot_graph(data, start_date, end_date):
