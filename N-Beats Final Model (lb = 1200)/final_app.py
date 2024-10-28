@@ -90,6 +90,9 @@ def aggregate_forecast(forecast_df, aggregation_type):
 def main():
     st.title("N-BEATS Transaction Count Forecast")
 
+    # Dropdown to select station number
+    station_no = st.selectbox("Select Station Number", [207, 208, 209])  # Add more station numbers as needed
+
     # Input start and end date for forecasting
     start_date = st.text_input("Enter Start Date (YYYY-MM-DD HH:MM:SS)", "2024-10-05 00:00:00")
     end_date = st.text_input("Enter End Date (YYYY-MM-DD HH:MM:SS)", "2024-10-30 23:59:00")
@@ -101,8 +104,11 @@ def main():
     )
 
     if st.button('Generate Forecast'):
-        # Load your dataset for hourly transactions (replace this with your actual data)
-        df = pd.read_csv(r'Aggregated_Data.csv')
+        # Load the corresponding CSV file based on the selected station number
+        file_path = f"station_data/{station_no}.csv"  # Adjust directory path as needed
+        df = pd.read_csv(file_path)
+        
+        # Ensure data is in datetime format and handle missing values
         df['Dt'] = pd.to_datetime(df['Dt'], errors='coerce')
         df = df.dropna(subset=['Dt'])
         df.set_index('Dt', inplace=True)
@@ -138,4 +144,4 @@ def main():
             st.error(f"Error during forecasting: {e}")
 
 if __name__ == "__main__":
-    main()
+    main() 
