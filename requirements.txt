@@ -1,0 +1,12 @@
+# Required Libraries
+streamlit
+pandas
+numpy
+joblib
+torch
+pika
+json
+datetime
+matplotlib
+sklearn
+os
