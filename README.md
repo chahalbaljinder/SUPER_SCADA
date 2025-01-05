@@ -96,6 +96,8 @@ SUPER_SCADA/
      - `DROPOUT_RATE = 0.2`
    - Train the model and save the outputs (model and scaler).
 
+![download (1)](https://github.com/user-attachments/assets/40e19910-7df0-40a7-9866-ee5b0b0b53e8)
+
 4. **Predictions:**
    - Run `main_rabbitmq.py` for predictions.
    - Use the Streamlit interface to input parameters (start date, end date, aggregation type) and view/download results.
@@ -110,4 +112,6 @@ The SUPER SCADA system demonstrates how predictive modeling can transform metro 
 - Providing actionable insights through advanced analytics.
 
 Future iterations will focus on scalability, integrating additional data sources, and refining model performance to meet evolving urban transportation challenges.
+
+![download](https://github.com/user-attachments/assets/d5d69b30-6f30-4152-8a2d-e3506e2186bc)
 
